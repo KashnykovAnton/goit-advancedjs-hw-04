@@ -1,3 +1,19 @@
-body{
+body {
   background-color: aquamarine;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+ul {
+  list-style: none;
+}
+
+.img-list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
 }
