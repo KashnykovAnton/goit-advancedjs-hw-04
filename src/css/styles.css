@@ -1,19 +1,112 @@
-body {
-  background-color: aquamarine;
+@import '../../node_modules/izitoast/dist/css/iziToast.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-img {
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #444444;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 8px;
+  margin-bottom: 24px;
+}
+
+.search-form input {
+  width: 300px;
+  font-size: 13px;
+  padding: 6px 0 4px 10px;
+  border: 1px solid #cecece;
+  background: #f6f6f6;
+  border-radius: 8px;
+  box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+}
+
+.search-form input:focus {
+  border: 2px solid darkgrey;
+  outline: none;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 24px;
+  max-width: calc(100vw - 48px);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+
+.photo-card {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 4px;
+}
+
+.gallery img {
   display: block;
   width: 100%;
+  height: 200px;
   object-fit: cover;
+  border-radius: 4px 4px 0 0;
 }
 
-ul {
-  list-style: none;
-}
-
-.img-list {
+.info {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: space-around;
+  padding: 6px 0 6px 0;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+button {
+  display: inline-block;
+  padding: 0 25px;
+  border: 1px solid #cecece;
+  border-radius: 8px;
+  height: 46px;
+  line-height: 46px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #444444;
+  background-color: #f6f6f6;
+  box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out;
+}
+button:focus-visible {
+  border: 2px solid #a9a9a9;
+  outline: none;
+}
+button:hover {
+  background-color: #ececec;
+  transition: all 0.2s ease-in-out;
+}
+button:active {
+  box-shadow: rgb(223, 227, 231) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.hide {
+  display: none;
+}
+
+.load-more-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 48px;
 }
