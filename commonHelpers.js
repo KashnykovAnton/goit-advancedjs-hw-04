@@ -1,23 +1,25 @@
-import{i as u,a as h}from"./assets/vendor-6d0036ef.js";(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const a of o.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&s(a)}).observe(document,{childList:!0,subtree:!0});function r(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerpolicy&&(o.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?o.credentials="include":e.crossorigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function s(e){if(e.ep)return;e.ep=!0;const o=r(e);fetch(e.href,o)}})();const y="https://pixabay.com/api/",b="23089683-10e6383e94187ff47334541d4",f={key:"",page:1,per_page:40,image_type:"photo",orientation:"horizontal",safesearch:!0,q:""},i={input:document.querySelector("input"),button:document.querySelector("button"),gallery:document.querySelector(".gallery"),loadMore:document.querySelector(".load-more")};i.input.addEventListener("input",v);i.button.addEventListener("click",L);i.loadMore.addEventListener("click",M);let l="";function v(t){t.preventDefault(),l=t.target.value.trim()}function L(t){if(t.preventDefault(),i.gallery.innerHTML="",l.length===0)return i.input.value="",u.info({message:"You should enter something to input!"});d(l)}async function d(t){try{const{data:n}=await h(k(y,b,f,t));S(n),q(n)}catch{return u.error({message:"Something went wrong :-( try again later."})}}function k(t,n,r,s){return t+"?"+Object.keys(r).map(e=>{switch(e){case"key":return e.concat("=",n);case"q":return e.concat("=",s);default:return e.concat("=",r[e])}}).join("&")}function S(t){const{hits:n}=t;if(n.length===0)return u.info({message:"Sorry, there are no images matching your search query. Please try again."});n.map(({webformatURL:r,largeImageURL:s,tags:e,likes:o,views:a,comments:p,downloads:g})=>{const m=`
-        <div class="photo-card">
-          <img src=${r} alt=${e} loading="lazy" />
-          <div class="info">
-            <p class="info-item">
-              <b>Likes</b>
-              <span>${c(o)}</span>
-            </p>
-            <p class="info-item">
-              <b>Views</b>
-              <span>${c(a)}</span>
-            </p>
-            <p class="info-item">
-              <b>Comments</b>
-              <span>${c(p)}</span>
-            </p>
-            <p class="info-item">
-              <b>Downloads</b>
-              <span>${c(g)}</span>
-            </p>
-          </div>
-        </div>`;i.gallery.insertAdjacentHTML("beforeend",m)})}function c(t){return t.toString().replace(/\B(?=(\d{3})+(?!\d))/g," ")}function M(t){t.preventDefault(),f.page+=1,d(l)}function q(t){const{hits:n,totalHits:r}=t;console.log(t),n.length<=f.per_page?u.info({message:"We're sorry, but you've reached the end of search results."}):i.loadMore.classList.remove("hide")}
+import{f as h}from"./assets/api-bb30e552.js";/* empty css                      */import{i as a,S as y}from"./assets/vendor-4c86d853.js";a.settings({position:"topRight",transitionIn:"bounceInDown",closeOnEscape:!0});const t={input:document.querySelector("input"),button:document.querySelector(".js-search-button"),gallery:document.querySelector(".gallery"),loadMore:document.querySelector(".js-load-more")};t.input.addEventListener("input",b);t.button.addEventListener("click",v);t.loadMore.addEventListener("click",L);let i="",o=1;function b(e){e.preventDefault(),i=e.target.value.trim()}function v(e){e.preventDefault(),M(),k()&&l(o,i)}function l(e,n){h(e,n).then(r=>{w(r)}).catch(r=>{a.error({message:"Something went wrong :-( try again later."})})}function w({hits:e,totalHits:n}){if(e.length===0)return a.info({message:"Sorry, there are no images matching your search query. Please try again."});S(n),e.map(({webformatURL:r,largeImageURL:c,tags:u,likes:p,views:d,comments:f,downloads:m})=>{const g=`
+        <li class="photo-card">
+          <a class="gallery-link" href = ${c}>
+            <img src=${r} alt=${u} loading="lazy" />
+          </a>
+            <div class="info">
+              <p class="info-item">
+                <b>Likes</b>
+                <span>${s(p)}</span>
+              </p>
+              <p class="info-item">
+                <b>Views</b>
+                <span>${s(d)}</span>
+              </p>
+              <p class="info-item">
+                <b>Comments</b>
+                <span>${s(f)}</span>
+              </p>
+              <p class="info-item">
+                <b>Downloads</b>
+                <span>${s(m)}</span>
+              </p>
+            </div>
+          </li>`;D.refresh(),t.gallery.insertAdjacentHTML("beforeend",g)}),$(o,n)}function L(e){e.preventDefault(),o+=1,l(o,i)}function M(){o=1,t.gallery.innerHTML="",t.loadMore.classList.add("hide")}function k(){return i.length===0?(t.input.value="",a.warning({message:"You should enter something to input!"}),!1):!0}function S(e){o>=Math.ceil(e/40)?(a.info({message:"We're sorry, but you've reached the end of search results."}),t.loadMore.classList.add("hide")):t.loadMore.classList.remove("hide")}function $(e,n){e===1?a.success({message:`Hooray! We found ${n} images.`}):window.scrollBy({top:window.innerHeight*.8,behavior:"smooth"})}function s(e){return e.toString().replace(/\B(?=(\d{3})+(?!\d))/g," ")}const D=new y(".photo-card a",{sourceAttr:"href",overlay:!0,nav:!0});
 //# sourceMappingURL=commonHelpers.js.map

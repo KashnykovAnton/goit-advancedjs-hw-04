@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Infinity Scroll</title>
+    <script type="module" crossorigin src="/goit-advancedjs-hw-04/commonHelpers2.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-advancedjs-hw-04/assets/vendor-4c86d853.js">
+    <link rel="modulepreload" crossorigin href="/goit-advancedjs-hw-04/assets/api-bb30e552.js">
+    <link rel="stylesheet" href="/goit-advancedjs-hw-04/assets/styles-26d3ec01.css">
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button class="main-button js-search-button" type="submit">
+          Search
+        </button>
+      </form>
+      <a class="main-button link" href="./index.html">Back to home</a>
+    </div>
+    <ul class="gallery"></ul>
+    <div class="js-guard"></div>
+    
+  </body>
+</html>
