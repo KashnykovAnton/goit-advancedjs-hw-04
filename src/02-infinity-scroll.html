@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Infinity Scroll</title>
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button class="main-button js-search-button" type="submit">
+          Search
+        </button>
+      </form>
+      <a class="main-button link" href="./index.html">Back to home</a>
+    </div>
+    <ul class="gallery"></ul>
+    <div class="js-guard"></div>
+    <script type="module" src="js/02-infinity-scroll.js"></script>
+  </body>
+</html>
