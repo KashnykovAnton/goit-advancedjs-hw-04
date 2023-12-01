@@ -33,8 +33,8 @@ function onClickButton(e) {
   checkEmptyValue() && fetchData(page, value);
 }
 
-function fetchData(page, value) {
-  fetchImages(page, value)
+async function fetchData(page, value) {
+  await fetchImages(page, value)
     .then(data => {
       createMarkup(data);
     })
